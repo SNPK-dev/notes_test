@@ -1,16 +1,14 @@
-FROM node:22-bookworm-slim AS build
+FROM node:24-bookworm-slim AS build
 
 WORKDIR /app
 
-RUN corepack enable && corepack prepare npm@11.12.1 --activate
-
 COPY package.json package-lock.json ./
-RUN corepack npm ci
+RUN npm ci
 
 COPY . .
-RUN corepack npm run build
+RUN npm run build
 
-FROM node:22-bookworm-slim AS runtime
+FROM node:24-bookworm-slim AS runtime
 
 WORKDIR /app
 

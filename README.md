@@ -65,7 +65,7 @@ npm run dev
 В проекте зафиксирован package manager:
 
 ```bash
-npm@11.12.1
+npm@11.11.0
 ```
 
 Production build:
