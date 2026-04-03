@@ -1,0 +1,12 @@
+.git
+.gitignore
+.nuxt
+.output
+node_modules
+npm-debug.log
+*.log
+test-results
+.env
+.env.*
+.codex
+.cursor

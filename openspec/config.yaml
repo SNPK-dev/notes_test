@@ -1,0 +1,46 @@
+schema: spec-driven
+
+context: |
+  Language: Russian
+  All OpenSpec planning artifacts must be written in Russian.
+  All explanations, summaries, and artifact content produced during OpenSpec planning should be in Russian.
+  Code identifiers, file names, route names, and technical terms such as Nuxt, Pinia, TypeScript, localStorage, Docker, SSR, SPA must remain in English where appropriate.
+
+  Project: Notes SPA test assignment on Nuxt 4.
+  Stack: TypeScript strict, Nuxt 4, Vue 3 Composition API, Pinia, SCSS.
+  Rendering: SPA-first, but architecture must remain SSR-safe.
+  Persistence: localStorage via repository abstraction, no direct storage access from UI components.
+  Architecture: layered structure (domain, stores, repositories, ui), reusable components only.
+  UX: no native alert/confirm, confirmations only via modal dialogs.
+  Quality bar: SOLID, DRY, KISS, YAGNI, clear separation of concerns.
+  Future-proofing: persistence contract should be replaceable with REST API without rewriting UI/domain.
+  Pages: exactly two page components - notes list and note editor.
+  Styling: responsive, cross-browser-safe, accessible keyboard interactions.
+  Build and delivery: production-ready Dockerfile and docker-compose.yaml are required.
+
+rules:
+  proposal:
+    - Write the artifact in Russian.
+    - Capture strict scope boundaries for the current change only.
+    - Explicitly state non-goals to avoid overengineering.
+    - Record UX constraints from the assignment and vacancy.
+
+  specs:
+    - Write the artifact in Russian.
+    - Write requirements in behavior-first form.
+    - Include scenarios for create, edit, delete, cancel, undo, redo, and reload persistence.
+    - Separate note-level behaviors from todo-level behaviors.
+    - Keep note preview on the list page read-only.
+
+  design:
+    - Write the artifact in Russian.
+    - Describe store boundaries and repository abstraction.
+    - Explain undo/redo model and why it is isolated from presentational components.
+    - Call out SSR-safe handling of browser-only APIs.
+    - Define modal confirmation flow and keyboard shortcuts.
+
+  tasks:
+    - Write the artifact in Russian.
+    - Break tasks into small vertical slices.
+    - Each task must produce testable observable behavior.
+    - Keep checkbox format strictly '- [ ]'.

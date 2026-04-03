@@ -1,0 +1,48 @@
+{
+  "name": "notes-spa",
+  "type": "module",
+  "private": true,
+  "packageManager": "npm@11.12.1",
+  "scripts": {
+    "build": "nuxt build",
+    "check:lockfile": "node -e \"const fs=require('fs'); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); const lock=JSON.parse(fs.readFileSync('package-lock.json','utf8')); const root=(lock.packages&&lock.packages[''])||{}; const normalize=(obj)=>Object.fromEntries(Object.entries(obj||{}).sort(([a],[b])=>a.localeCompare(b))); const same=(a,b)=>{ const left=normalize(a); const right=normalize(b); return JSON.stringify(left)===JSON.stringify(right); }; if(!same(pkg.dependencies,root.dependencies)||!same(pkg.devDependencies,root.devDependencies)){ console.error('package.json and package-lock.json are out of sync. Run npm install and commit package-lock.json.'); process.exit(1); } console.log('package.json and package-lock.json root dependencies are in sync.');\"",
+    "dev": "nuxt dev",
+    "docker:build": "npm run check:lockfile && docker compose build",
+    "docker:up": "npm run check:lockfile && docker compose up",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "generate": "nuxt generate",
+    "lint": "eslint .",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "test": "vitest run",
+    "test:foundation": "vitest run tests/foundation-verification.test.ts",
+    "test:e2e": "npm run build && node tests/e2e/run-playwright.mjs",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.11.3",
+    "nuxt": "^4.4.2",
+    "pinia": "^3.0.4",
+    "uuid": "^13.0.0",
+    "vue": "^3.5.31",
+    "vue-router": "^5.0.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@nuxt/test-utils": "^4.0.0",
+    "@playwright/test": "^1.43.1",
+    "@vue/language-core": "^3.2.6",
+    "@vue/test-utils": "^2.4.6",
+    "eslint": "^10.1.0",
+    "eslint-plugin-vue": "^10.8.0",
+    "globals": "^17.4.0",
+    "jsdom": "^29.0.1",
+    "prettier": "^3.8.1",
+    "sass": "^1.98.0",
+    "typescript-eslint": "^8.58.0",
+    "vitest": "^4.1.2",
+    "vue-tsc": "^3.2.6"
+  }
+}

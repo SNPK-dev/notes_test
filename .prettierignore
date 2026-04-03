@@ -1,0 +1,11 @@
+.git
+.nuxt
+.output
+.data
+.nitro
+.cache
+dist
+node_modules
+coverage
+test-results
+openspec
